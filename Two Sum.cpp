@@ -14,6 +14,7 @@ public:
                     arr[1]=j;
                 }
             }
+            
         }
         return arr;
     }
