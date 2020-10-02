@@ -6,6 +6,7 @@ public:
         int n = x;
         long rev = 0;
         
+        
         while(x!=0)
         {
             int rem = x%10;
