@@ -1,0 +1,24 @@
+class Solution {
+public:
+    bool uniqueOccurrences(vector<int>& arr) {
+        unordered_map<int, int> valueCount;
+        unordered_set<int> occurrences;
+        
+        for (auto num : arr)
+        {
+            valueCount[num]++;
+        }
+        
+        for (auto element : valueCount)
+        {
+            if (occurrences.find(element.second) != occurrences.end())
+            {
+                return false;
+            }
+            
+            occurrences.insert(element.second);
+        }
+        
+        return true;
+    }
+};
