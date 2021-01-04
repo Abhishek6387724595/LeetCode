@@ -1,0 +1,26 @@
+class Solution {
+public:
+    vector<int> selfDividingNumbers(int left, int right) {
+        vector<int> v1;
+        int rem;
+        for(int i=left;i<=right;i++)
+        {
+            bool isdivisible = true;
+            int number = i;
+                while(number>0)
+                {
+                    rem = number%10;
+                    if(rem==0 || i%rem!=0)
+                    {
+                        isdivisible = false;
+                        break;
+                    }
+                    number=number/10;
+                }
+                if(isdivisible)
+                {
+                    v1.push_back(i);
+                }
+        }return v1;
+    }
+};
