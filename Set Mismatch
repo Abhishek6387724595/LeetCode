@@ -1,0 +1,21 @@
+    class Solution {
+public:
+    vector<int> findErrorNums(vector<int>& nums) {
+        int n=nums.size();
+        unordered_set<int>s1;
+        vector<int>v1;
+        int sum=0;
+        for(auto x:nums){
+            if(s1.find(x)!=s1.end()){
+                v1.push_back(x);
+            }
+            else{
+                s1.insert(x);
+                sum+=x;
+            }
+        }
+        int t = n*(n+1)/2;
+        v1.push_back(t-sum);
+        return v1;
+    }
+};
