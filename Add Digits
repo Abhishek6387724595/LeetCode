@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int addDigits(int num) {
+        int t=0,index=0;
+        if(num==0){return num;}
+        while(1==true){
+            t=0;
+            while(num!=0){
+                index=num%10;
+                t=t+index;
+                num=num/10;
+            }
+            if(t<10){return t;}
+            num=t;
+        }
+    }
+};
