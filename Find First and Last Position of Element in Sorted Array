@@ -1,0 +1,51 @@
+class Solution {
+public:
+    
+    
+    int first(vector<int>nums,int target,int start,int end){
+        int res=-1;
+        while(start<=end){
+            int mid=start+(end-start)/2;
+            if(target==nums[mid]){
+                res=mid;
+                end=mid-1;
+            }
+            else if(target<nums[mid]){
+                end=mid-1;
+            }
+            else{
+                start=mid+1;
+            }
+        }
+        return res;
+    }
+    
+    int last(vector<int>nums,int target,int start,int end){
+        int res=-1;
+        while(start<=end){
+            int mid=start+(end-start)/2;
+            if(target==nums[mid]){
+                res=mid;
+                start=mid+1;
+            }
+            else if(target<nums[mid]){
+                end=mid-1;
+            }
+            else{
+                start=mid+1;
+            }
+        }
+        return res;
+    }
+    
+    
+    vector<int> searchRange(vector<int>& nums, int target) {
+        vector<int>v;
+        int n=nums.size();
+        int ans1=first(nums,target,0,n-1);
+        int ans2=last(nums,target,0,n-1);
+        v.push_back(ans1);
+        v.push_back(ans2);
+        return v;
+    }
+};
