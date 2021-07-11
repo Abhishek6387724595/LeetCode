@@ -1,0 +1,47 @@
+**By UnorderedMap (5% Faster)**
+
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int n=nums.size();
+        unordered_map<int,int>m1;
+        for(int i=0;i<=n;i++)
+        {
+            m1[i]=0;
+        }
+        
+        for(int i=0;i<n;i++)
+        {
+            m1[nums[i]]++;
+        }
+        
+        int p=0;
+        
+        for(int i=0;i<m1.size();i++)
+        {
+            if(m1[i]==0)
+            {
+                p=i;
+            }
+        }
+        return p;
+    }
+};
+
+
+
+**By AP Method (26% Faster)**
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int n=nums.size();
+        int sum=n*(n+1)/2;
+        int total_sum=0;
+        int required_number;
+        for(int i=0;i<n;i++){
+            total_sum=total_sum+nums[i];
+        }
+        required_number=sum-total_sum;
+        return required_number;
+    }
+};
